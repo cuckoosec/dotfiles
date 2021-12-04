@@ -1,0 +1,16 @@
+aide
+apticron
+apt-listchanges
+apt-transport-https
+ca-certificates
+clamav
+clamav-daemon
+clamav-freshclam
+deborphan
+fail2ban
+host
+lynis
+ntp
+rkhunter
+ufw
+unattended-upgrades
