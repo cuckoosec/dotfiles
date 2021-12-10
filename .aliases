@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# Editor quick command
+alias m="micro"
+alias nano="micro"
+
+# Package update
+alias susup="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt clean"
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias dl="cd /home/$USER/Downloads"
+
+# Use colors in coreutils utilities output
+alias grep='grep --color'
+alias fgrep='fgrep --color'
+alias egrep='egrep --color'
+alias ls="ls --color=auto"
+
+# ls aliases
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls'
+
+# Aliases to protect against overwriting
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Mirror a website
+alias mirrorsite='wget -m -k -K -E -e robots=on'
+
+# Enable aliases to be sudo'ed
+alias sudo='sudo '
+
+# Check internet connection
+alias p9="ping -c3 9.9.9.9"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Use dcfldd as dd
+alias dd="dcfldd status=on hash=sha256 hashconv=before "
+
+# Common problem
+alias xdd="echo 'ERROR: You are probably looking for usr/bin/xxd!'"
+
+alias python="python3 "
+
+alias tls="tmux list-sessions"
+
+# Git
+alias gi="git init"
+alias gc="git commit"
+alias ga="git add"
+alias gp="git push origin main"
+alias gs="git status"
