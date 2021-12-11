@@ -7,10 +7,15 @@ clamav
 clamav-daemon
 clamav-freshclam
 deborphan
-fail2ban
+dns-utils
+git
 host
 lynis
 ntp
 rkhunter
 ufw
 unattended-upgrades
+tcpdump
+tmux
+whois
+zsh
