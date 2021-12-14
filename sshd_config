@@ -21,10 +21,10 @@ LogLevel VERBOSE
 # Log sftp level file access (read/write/etc.) that would not be easily logged otherwise.
 Subsystem sftp  internal-sftp -f AUTHPRIV -l INFO
 
+Port 22
 AddressFamily inet
-#ListenAddress 172.16.1.1
 #ListenAddress 10.6.0.1
-#ListenAddress 0.0.0.0
+ListenAddress 0.0.0.0
 AllowAgentForwarding no
 # AllowGroups sshusers
 AllowStreamLocalForwarding no
@@ -35,15 +35,13 @@ Compression no
 GatewayPorts no
 HostbasedAuthentication no
 IgnoreRhosts yes
-MaxAuthTries 3
 MaxSessions 2
+MaxAuthTries 3
 PasswordAuthentication no
 PermitEmptyPasswords no
 PermitRootLogin no
 PermitTunnel no
 PermitUserEnvironment no
-Port 22
-#Port 2222
 Protocol 2
 TCPKeepAlive no
 UseDNS yes
