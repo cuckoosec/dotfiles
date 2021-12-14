@@ -7,6 +7,7 @@ clamav
 clamav-daemon
 clamav-freshclam
 deborphan
+dnsmasq
 dns-utils
 git
 host
@@ -18,4 +19,7 @@ unattended-upgrades
 tcpdump
 tmux
 whois
-zsh
+zshgnupg2
+gnupg-agent
+scdaemon
+pcscd

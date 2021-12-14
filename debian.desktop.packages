@@ -58,3 +58,7 @@ wireshark
 yubikey-manager
 yubikey-personalization
 zsh
+gnupg2
+gnupg-agent
+scdaemon
+pcscd

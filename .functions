@@ -61,3 +61,19 @@ tmk() {
 tat() {
     tmux a -t $1
 }
+
+secret() {
+    echo $1 | gpg --encrypt --armor --recipient $KEYID -o $2
+}
+
+reveal() {
+    gpg --decrypt --armor $1
+}
+
+sign() {
+    echo $1 | gpg --armor --clearsign > $2
+}
+
+verify() {
+    gpg --verify $1
+}
