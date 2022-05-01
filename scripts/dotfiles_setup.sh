@@ -8,7 +8,7 @@ backup() {
   if [ -e "$target" ]; then
     if [ ! -L "$target" ]; then
     
-      location="${target}-COPY-$(date+'%Y%m%d%H%M%S')"
+      location="${target}-COPY-$(date --iso-8601=seconds)"
       cp --archive "${target}" "${location}"
       echo "-----> Moved $target config file to $location"
 
@@ -51,6 +51,37 @@ for file in *; do
     fi
   fi
 done
+
+echo "Dowloading oh-my-zsh"
+# FIXME
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+backup $HOME/.zshrc
+rm $HOME/.zshrc && ln -s ./.zshrc $HOME/.zshrc
+
+backup $HOME/.tmux.conf
+rm $HOME/.tmux.conf && ln -s ./.tmux.conf $HOME/.tmux.conf
+
+backup $HOME/.selected_editor
+rm $_ && ln -s ./selected_editor $HOME/.selected_editor
+
+backup $HOME/.gnupg/gpg-agent.conf
+rm $_ && ln -s ./gpg-agent.conf $/HOME/.gnupg/gpg-agent.conf
+
+ln -s 
+
+ls -la | awk '{print $9}' | grep -P "^\..*-COPY-"
+
+ln -s ./configs/torrc /etc/tor/torrc
+
+ln -s ./gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+
+rm $HOME/.config/micro/bindings.json
+ln -s $HOME/dotfiles/configs/micro/bindings.json $HOME/.config/micro/bindings.json
+rm $HOME/.config/micro/settings.json
+ln -s $HOME/dotfiles/configs/micro/settings.json $HOME/.config/micro/settings.json
+
 
 echo "Restarting services"
 #sudo systemctl restart ssh

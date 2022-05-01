@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+# Copy backup
+function cpb {
+	cp --archive "${1}"{,-COPY-$(date +"%Y%m%d%H%M%S")}
+}
+
+# Create a new directory and enter it
+function mcd() {
+	mkdir  "${1}" && cd "${1}";
+}
+
+# Start HTTP server
+function server() {
+	python -m http.server $1;
+}
+
+# Jump up n-levels
+function up() {
+    local cdir="$(pwd)"
+    if [[ "${1}" == "" ]]; then
+        cdir="$(dirname "${cdir}")"
+    elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
+        echo "Error: argument must be a number"
+    elif ! [[ "${1}" -gt "0" ]]; then
+        echo "Error: argument must be positive"
+    else
+        for ((i=0; i<${1}; i++)); do
+            local ncdir="$(dirname "${cdir}")"
+            if [[ "${cdir}" == "${ncdir}" ]]; then
+                break
+            else
+                cdir="${ncdir}"
+            fi
+        done
+    fi
+    cd "${cdir}"
+}
+
+path_remove() {
+    PATH=$(echo -n "$PATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
+}
+
+path_append() {
+    path_remove "$1"
+    PATH="${PATH:+"$PATH:"}$1"
+}
+
+path_prepend() {
+    path_remove "$1"
+    PATH="$1${PATH:+":$PATH"}"
+}
+
+rmcom() {
+    sed -i -r -e '/^#|^$/ d' $1
+}
+
+tmk() {
+    tmux new-session -s $1
+}
+tat() {
+    tmux a -t $1
+}
+
+secret() {
+    echo $1 | gpg --encrypt --armor --recipient $KEYID -o $2
+}
+
+reveal() {
+    gpg --decrypt --armor $1
+}
+
+sign() {
+    echo $1 | gpg --armor --clearsign > $2
+}
+
+verify() {
+    gpg --verify $1
+}
