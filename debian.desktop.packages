@@ -1,8 +1,7 @@
+zsh
+
+coreutils
 aide
-apparmor
-apparmor-utils
-apticron
-apt-listchanges
 apt-transport-https
 aria2
 binwalk
@@ -16,7 +15,6 @@ clementine
 cmake
 cryptsetup
 curl
-deborphan
 dnsmasq
 exiftool
 ffmpeg
@@ -41,9 +39,7 @@ ntp
 parted
 proxychains
 psad
-rkhunter
 rsync
-shellcheck
 strace
 tcpdump
 thunderbird
@@ -63,3 +59,5 @@ gnupg-agent
 scdaemon
 pcscd
 tor
+cherrytree
+

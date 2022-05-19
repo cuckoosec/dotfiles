@@ -77,3 +77,7 @@ sign() {
 verify() {
     gpg --verify $1
 }
+
+function addpack() {
+    echo $1 | tee -a ~/projects/repos/dotfiles/tools/debian.bug.packages | xargs -I % sudo apt install -y %   
+}

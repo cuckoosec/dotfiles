@@ -2,9 +2,7 @@
     "Alt-/": "lua:comment.comment",
     "CtrlUnderscore": "lua:comment.comment",
     "\u001b[1;6A": "SelectUp",
-    "\u001b[1;2A": "SelectUp",
     "\u001b[1;6B": "SelectDown",
-    "\u001b[1;2B": "SelectDown",
     "\u001b[1;2C": "SelectRight",
     "\u001b[1;2D": "SelectLeft",
     "\u001b[1;5D": "WordLeft",
@@ -18,5 +16,10 @@
     "\u001b[1;4D": "SelectToStartOfLine",
     "\u001b[1;4C": "SelectToEndOfLine",
     "\u001b[1;7D": "CursorStart",
-    "\u001b[1;7C": "CursorEnd"
+    "\u001b[1;7C": "CursorEnd",
+    "\u001b[3;5~": "DeleteWordRight",
+    "\u001b[3;2~": "DeleteWordLeft",
+    "\u001b[3;6~": "DeleteLine",
+    "\u001b[1;7A": "SpawnMultiCursorUp",
+    "\u001b[1;7B": "SpawnMultiCursorDown"
 }

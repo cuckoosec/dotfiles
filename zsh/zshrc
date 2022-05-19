@@ -1,29 +1,30 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-export CONF_DIR="$HOME/.config"
-
-source "$CONF_DIR/zsh/functions"
-source "$CONF_DIR/zsh/aliases"
+source "~/.config/zsh/functions"
+source "~/.config/zsh/aliases"
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Created by newuser for 5.8
-source "$CONF_DIR/zsh/powerlevel10k/powerlevel10k.zsh-theme"
-source "$CONF_DIR/zsh/powerlevel10k/powerlevel10k.zsh-theme"
+source "~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme"
+source "~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme"
 
-source "$CONF_DIR/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "$CONF_DIR/zsh/.p10k.zsh" ]] || source "$CONF_DIR/zsh/.p10k.zsh"
-source "$CONF_DIR/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$CONF_DIR/zsh/colored-man-pages.plugin.zsh"
-source "$CONF_DIR/zsh/history.zsh"
-source "$CONF_DIR/zsh/completion.zsh"
-source "$CONF_DIR/zsh/key-bindings.zsh"
+[[ ! -f "~/.config/zsh/.p10k.zsh" ]] || source "~/.config/zsh/.p10k.zsh"
+source "~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "~/.config/zsh/colored-man-pages.plugin.zsh"
+source "~/.config/zsh/history.zsh"
+source "~/.config/zsh/completion.zsh"
+source "~/.config/zsh/key-bindings.zsh"
 
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 gpg-connect-agent updatestartuptty /bye > /dev/null
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
